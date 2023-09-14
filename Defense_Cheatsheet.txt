@@ -1,0 +1,72 @@
+# Check No GUI Running
+ls /usr/bin/*session
+# Check UFW Service Running
+sudo ufw status
+sudo service ufw status
+sudo systemctl ufw  status
+# Check SSH Service Running
+sudo service ssh status
+systemctl status ssh
+# Check OS Name (CentOS/Debian)
+uname -v
+uname --kernel-version
+# Check User Is In "sudo" & "user42" groups
+getent group sudo
+getent group user42
+# Create New User & Show It Follows Passwords Policy
+sudo adduser name_user
+# Create New Group Named "evaluating"
+sudo addgroup evaluating
+# Add New User To New Group
+sudo adduser name_user evaluating
+# Check It Was Added Successfully
+getent group evaluating
+# Check Hostname
+Hostname
+# Change Hostname
+sudo nvim /etc/hostname
+# Change Hosts
+sudo nvim /etc/hosts
+# Reboot To Take The New Hostname
+sudo reboot
+# Check Partitions
+lsblk
+# Check Sudo Is Installed
+which sudo (Worse Option)
+dpkg -s sudo
+# Add New User To The Sudo Group
+sudo adduser name_user sudo
+# Check It's In The Group
+sudo getent group sudo
+# Check Sudo Rules Told In Subject
+sudo nvim /etc/sudoers.d/sudo_config
+# Check sudo Log
+/var/log/sudo/
+/var/log/sudo/sudo_config
+# Check UFW Is Installed
+dpkg -s ufw
+# Check UFW Service Is Running
+sudo service ufw status
+# Check UFW Active Rules
+sudo ufw status numbered
+# Create A New UFW Rule For Port 8080
+sudo ufw allow 8080
+# Check The Newly Created Rule
+sudo ufw status numbered
+# Delete The Just Created Rule
+sudo ufw delete num_rule
+# Check The Rule Has Been Successfully Deleted
+sudo ufw status numbered
+# Check SSH Is Installed In The VM
+dpkg -s ssh
+which ssh
+# Check SSH Service/Daemon Is Active & Running
+systemctl status ssh
+# Modify Crontab Execution Time From 10 Minutes To 1
+sudo crontab -u root -e
+# Stop Script Execution When The Server Starts
+sudo /etc/init.d/cron stop
+sudo /etc/init.d/cron start
+sudo systemctl stop cron
+sudo systemctl start cron
+# 
